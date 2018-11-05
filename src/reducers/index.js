@@ -6,9 +6,9 @@ import { selectedsubreddit } from './selectedsubreddit';
 import { postsBySubreddit } from './postsBySubreddit';
 
 //使用redux的combineReducers方法将所有reducer打包起来
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
 	selectedsubreddit,
 	postsBySubreddit
 });
 
-export default rootReducer;
+export default appReducer;

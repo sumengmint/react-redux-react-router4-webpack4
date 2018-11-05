@@ -6,6 +6,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
+    devtool: 'source-map',
     entry: './src/main.js',
     output: {
         path: path.resolve('./dist'),
@@ -41,6 +42,7 @@ module.exports = {
     ],
     devServer: {
         contentBase: path.resolve('./dist'),
+        //publicPath: path.resolve('/dist'),
         host: 'localhost',      // 默认是localhost
         port: 3000,             // 端口
         open: true,             // 自动打开浏览器

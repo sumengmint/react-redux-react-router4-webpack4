@@ -5,9 +5,9 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import { selectSubreddit, fetchPosts, fetchPostsIfNeeded } from './actions/asyncAciton';
+import { selectSubreddit } from './actions/asyncAciton';
 import appReducer from './reducers/index';
-import App from "./containers/App.js";
+import App from "./router";
 import './app.less';
 
 const loggerMiddleware = createLogger();
@@ -19,21 +19,17 @@ const store = createStore(
 	)
 );
 
-store.dispatch(selectSubreddit('sumeng'));
-store.dispatch(fetchPostsIfNeeded('reactjs'))
-	.then(() => console.log(store.getState()));
-
-if(module.hot) {
-	// 实现热更新
-	module.hot.accept('./reducers', () => {
-		const nextRootReducer = require('./reducers/index');
-		store.replaceReducer(nextRootReducer);
-	});
-}
-
 ReactDOM.render(
-  <Provider store={store} myStore={store}>
+  <Provider store={store}>
       <App />
   </Provider>,
     document.getElementById('root')
 );
+
+if(module.hot) {
+    // 实现热更新
+    module.hot.accept('./reducers', () => {
+        const nextRootReducer = require('./reducers/index');
+        store.replaceReducer(nextRootReducer);
+    });
+}
