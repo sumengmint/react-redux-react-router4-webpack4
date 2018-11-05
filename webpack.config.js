@@ -36,7 +36,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'style.css'   // 指定打包后的css
         }),
-        new CleanWebpackPlugin(path.resolve('./dist')),
+        //new CleanWebpackPlugin(path.resolve('./dist')),
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
