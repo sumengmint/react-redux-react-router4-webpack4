@@ -8,20 +8,28 @@ import { createStore, applyMiddleware } from "redux";
 import { selectSubreddit } from './actions/asyncAciton';
 import appReducer from './reducers/index';
 import App from "./router";
+import TabA from './components/tabA';
+import TabB from './components/tabB';
 import './app.less';
+import { dispatchAddLog, crashReporter } from './middleware/dispatchAddLog';
 
 const loggerMiddleware = createLogger();
 const store = createStore(
   appReducer,
 	applyMiddleware(
-		thunkMiddleware, // 允许我们 dispatch() 函数
-		loggerMiddleware // 一个很便捷的 middleware，用来打印 action 日志
+		dispatchAddLog, // 允许我们 dispatch() 函数
+		crashReporter, // 一个很便捷的 middleware，用来打印 action 日志
+        thunkMiddleware
 	)
 );
 
+let next = store.dispatch;
+
+store.dispatch(selectSubreddit('myActions'));
+
 ReactDOM.render(
   <Provider store={store}>
-      <App />
+      <TabB />
   </Provider>,
     document.getElementById('root')
 );
