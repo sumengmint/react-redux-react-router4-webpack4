@@ -17,7 +17,7 @@ const crashReporter = store => next => action => {
 
 function createThunkMiddleware(extraArgument) {
     return ({ dispatch, getState }) => next => action => {
-        if(typeof action === 'function') {
+        if(typeof(action) === 'function') {
             return action(dispatch, getState, extraArgument);
         }
 
@@ -25,11 +25,11 @@ function createThunkMiddleware(extraArgument) {
     }
 }
 
-const thunkMiddleware = createThunkMiddleware();
-thunkMiddleware.withExtraArgument = createThunkMiddleware;
+const thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
 
 export {
     dispatchAddLog,
     crashReporter,
-    thunkMiddleware
+	  thunk,
 }

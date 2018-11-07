@@ -11,25 +11,23 @@ import App from "./router";
 import TabA from './components/tabA';
 import TabB from './components/tabB';
 import './app.less';
-import { dispatchAddLog, crashReporter } from './middleware/dispatchAddLog';
+import { dispatchAddLog, crashReporter, thunk } from './middleware/dispatchAddLog';
 
 const loggerMiddleware = createLogger();
 const store = createStore(
   appReducer,
 	applyMiddleware(
-		dispatchAddLog, // 允许我们 dispatch() 函数
+		thunkMiddleware, // 允许我们 dispatch() 函数
 		crashReporter, // 一个很便捷的 middleware，用来打印 action 日志
-        thunkMiddleware
+		loggerMiddleware,
 	)
 );
-
-let next = store.dispatch;
 
 store.dispatch(selectSubreddit('myActions'));
 
 ReactDOM.render(
   <Provider store={store}>
-      <TabB />
+			<App/>
   </Provider>,
     document.getElementById('root')
 );
