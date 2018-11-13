@@ -14,7 +14,7 @@ class App extends Component{
                             <Link to="/">tab A</Link>
                         </li>
                         <li>
-                            <Link to="/about">tab B</Link>
+                            <Link to="/b">tab B</Link>
                         </li>
                     </ul>
 

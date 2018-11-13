@@ -37,7 +37,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'style.css'   // 指定打包后的css
         }),
-        //new CleanWebpackPlugin(path.resolve('./dist')),
+        new CleanWebpackPlugin(path.resolve('./dist')),
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
@@ -46,6 +46,7 @@ module.exports = {
         host: 'localhost',      // 默认是localhost
         port: 3000,             // 端口
         open: true,             // 自动打开浏览器
-        hot: true               // 开启热更新
+        hot: true,               // 开启热更新
+        historyApiFallback: true
     }
 };

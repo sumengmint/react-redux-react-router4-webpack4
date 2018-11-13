@@ -69,7 +69,6 @@ export function fetchPosts(subreddit) {
 			.then(json =>
 				// 可以多次 dispatch！
 				// 这里，使用 API 请求结果来更新应用的 state。
-
 				dispatch(receivePosts(subreddit, json))
 			)
 	}
