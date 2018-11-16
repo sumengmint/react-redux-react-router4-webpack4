@@ -15,9 +15,10 @@ class ChildB extends Component {
 	}
 
 	render() {
-		const { name } = this.props;
+		const { name, childClass } = this.props;
+
 		return (
-			<div>Hello, I'm child B
+			<div className={childClass}>Hello, I'm child B
 				<div>{`The extend value is ${name}`}</div>
 			</div>
 		);
