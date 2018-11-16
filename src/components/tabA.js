@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {selectSubreddit} from "../actions/asyncAciton";
+import Debounce from "./debounce";
+import Throttle from "./throttle";
 
 class TabA extends Component {
     constructor(props) {
@@ -15,7 +17,15 @@ class TabA extends Component {
 
     render() {
         return (
-            <p>This is tab A</p>
+            <div>
+                <p>This is tab A， please input values：</p>
+                <div>函数防抖
+                    <Debounce/>
+                </div>
+                <div>函数节流
+                    <Throttle/>
+                </div>
+            </div>
         );
     }
 }
