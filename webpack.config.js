@@ -22,7 +22,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader']
+                use: [/*MiniCssExtractPlugin.loader, */'style-loader', 'css-loader', 'less-loader', 'postcss-loader']
             }
         ]
     },
@@ -34,9 +34,9 @@ module.exports = {
             template: './src/index.html',
             hash: true, // 会在打包好的bundle.js后面加上hash串
         }),
-        new MiniCssExtractPlugin({
+        /*new MiniCssExtractPlugin({
             filename: 'style.css'   // 指定打包后的css
-        }),
+        }),*/
         new CleanWebpackPlugin(path.resolve('./dist')),
         new webpack.HotModuleReplacementPlugin()
     ],
