@@ -2,8 +2,9 @@
  * Created by za-sumeng on 2018/11/7.
  */
 import React, { Component } from "react";
+import ContextChild from './contextChild';
 
-class ChildB extends Component {
+class ChildB extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -20,6 +21,7 @@ class ChildB extends Component {
 		return (
 			<div className={childClass}>Hello, I'm child B
 				<div>{`The extend value is ${name}`}</div>
+				<ContextChild/>
 			</div>
 		);
 	}

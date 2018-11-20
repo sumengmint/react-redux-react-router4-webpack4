@@ -8,7 +8,6 @@ const initState = {
 };
 
 export function openTheModel( state = initState, action ) {
-    console.log(action);
     switch (action.type) {
         case OPEN_MODEL: {
             return Object.assign({}, state, { isOpen: action.isOpen });
