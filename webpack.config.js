@@ -26,6 +26,10 @@ module.exports = {
             }
         ]
     },
+    /*externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM'
+    },*/
     plugins: [
         // 通过new一下这个类来使用插件
         new HtmlWebpackPlugin({
