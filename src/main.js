@@ -8,8 +8,8 @@ import { createStore, applyMiddleware } from "redux";
 import { selectSubreddit } from './actions/asyncAciton';
 import appReducer from './reducers/index';
 import App from "./router";
-import TabA from './components/tabA';
-import TabB from './components/tabB';
+import TabA from './module/home/tabA';
+import TabB from './module/home/tabB';
 import './app.less';
 import { dispatchAddLog, crashReporter, thunk } from './middleware/dispatchAddLog';
 

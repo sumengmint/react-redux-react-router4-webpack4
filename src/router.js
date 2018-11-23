@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Router, Route, Link } from "react-router-dom";
 import createBrowserHistory from 'history/createBrowserHistory'
 
-import TabA from './components/tabA';
-import TabB from './components/tabB';
-import TabC from './components/tabC';
-import Hooks from './components/reactHooks';
-import {Context} from './components/context';
+import TabA from './module/home/tabA';
+import TabB from './module/home/tabB';
+import TabC from './module/home/tabC';
+import Hooks from './module/home/reactHooks';
+import {Context} from './module/home/context';
 import ReactStudy from './reactStudy/index';
 
 class App extends Component{

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import WithHeader from './HOC';
-import UseHocInheritance from './useHocInheritance';
+import WithHeader from '../hoc/HOC';
+import UseHocInheritance from '../hoc/useHocInheritance';
 
 @WithHeader
 class TabC extends Component {

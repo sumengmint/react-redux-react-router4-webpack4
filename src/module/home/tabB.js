@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPostsIfNeeded } from "../actions/asyncAciton";
-import ChildB from './childB';
-import ContextChild from './contextChild';
+import { fetchPostsIfNeeded } from "../../actions/asyncAciton";
+import ChildB from './components/childB';
+import ContextChild from './components/contextChild';
 
 export const TestContext = React.createContext({
     propsA: '123'

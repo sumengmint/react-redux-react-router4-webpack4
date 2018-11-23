@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 //import ThemeContext from '../constants/theme-context';
-import ThemedButton from './themed-button';
+import ThemedButton from './components/themed-button';
 
 export const ThemeContext = React.createContext(
     // themes.dark // default value

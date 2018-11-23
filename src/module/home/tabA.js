@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {selectSubreddit} from "../actions/asyncAciton";
-import {openModel} from "../actions/modelAction";
-import Debounce from "./debounce";
-import Throttle from "./throttle";
-import Model from './model';
-import ModelWithRedux from './modelWithRedux';
+import {selectSubreddit} from "../../actions/asyncAciton";
+import {openModel} from "../../actions/modelAction";
+import Debounce from "./components/debounce";
+import Throttle from "./components/throttle";
+import Model from '../model/model';
+import ModelWithRedux from '../model/modelWithRedux';
 
 class TabA extends Component {
     constructor(props) {

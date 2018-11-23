@@ -2,7 +2,7 @@
  * Created by za-sumeng on 2018/11/20.
  */
 import React, { Component } from 'react';
-import {ThemeContext} from './context';
+import {ThemeContext} from '../context';
 
 class ThemedButton extends React.Component {
     render() {
