@@ -8,7 +8,15 @@ class TabC extends Component {
         super( props );
     }
 
+    testLoading() {
+        setTimeout(() => {}, 3000);
+    }
+
     render() {
+        const renderTest = () => {
+            return <div>test the loading</div>
+        };
+
         return (
             <div test="1111">
                 <UseHocInheritance/>
