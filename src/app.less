@@ -1,6 +1,11 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
 }
 
 p {
@@ -9,6 +14,22 @@ p {
 
 .test {
   display: flex;
+}
+
+.menu-tree {
+  position: absolute;
+  width: 150px;
+  left: 0;
+  top: 0;
+  li {
+    display: block;
+    padding: 20px 0;
+  }
+}
+
+.main-content {
+  width: 100%;
+  padding-left: 180px;
 }
 
 .menu-tab {

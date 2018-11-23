@@ -7,9 +7,9 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
-    entry: './src/main.js',
+    entry: path.resolve(__dirname, './src/main.js'),
     output: {
-        path: path.resolve('./dist'),
+        publicPath: '/',
         filename: "bundle.js"
     },
     module: {
@@ -18,7 +18,7 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                include: path.resolve('src')
+                include: path.resolve(__dirname, './src')
             },
             {
                 test: /\.less$/,
@@ -35,18 +35,18 @@ module.exports = {
         new HtmlWebpackPlugin({
             // 用哪个html作为模板
             // 在src目录下创建一个index.html页面当做模板来用
-            template: './src/index.html',
+            template: path.resolve(__dirname, './src/index.html'),
             hash: true, // 会在打包好的bundle.js后面加上hash串
         }),
         /*new MiniCssExtractPlugin({
             filename: 'style.css'   // 指定打包后的css
         }),*/
-        new CleanWebpackPlugin(path.resolve('./dist')),
+        new CleanWebpackPlugin(path.resolve(__dirname, './dist')),
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        contentBase: path.resolve('./dist'),
-        //publicPath: path.resolve('/dist'),
+        contentBase: path.resolve(__dirname, './dist'),
+        //publicPath: path.resolve(__dirname, './dist'),
         host: 'localhost',      // 默认是localhost
         port: 3000,             // 端口
         open: true,             // 自动打开浏览器

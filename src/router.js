@@ -6,6 +6,7 @@ import TabA from './components/tabA';
 import TabB from './components/tabB';
 import Hooks from './components/reactHooks';
 import {Context} from './components/context';
+import ReactStudy from './reactStudy/index';
 
 class App extends Component{
     render() {
@@ -15,8 +16,8 @@ class App extends Component{
 
         return (
             <Router history={history}>
-                <div>
-                    <ul className='menu-tab'>
+                <div className="container">
+                    <ul className='menu-tree'>
                         <li>
                             <Link to="/">tab A</Link>
                         </li>
@@ -29,14 +30,18 @@ class App extends Component{
                         <li>
                             <Link to="/context">context</Link>
                         </li>
+                        <li>
+                            <Link to="/react">react</Link>
+                        </li>
                     </ul>
 
-                    <hr />
-
-                    <Route exact path="/" component={TabA} />
-                    <Route path="/b" component={TabB} />
-                    <Route path="/hook" component={Hooks} />
-                    <Route path="/context" component={Context} />
+                    <div className="main-content">
+                        <Route exact path="/" component={TabA} />
+                        <Route path="/b" component={TabB} />
+                        <Route path="/hook" component={Hooks} />
+                        <Route path="/context" component={Context} />
+                        <Route path="/react"><ReactStudy/></Route>
+                    </div>
                 </div>
             </Router>
         );
