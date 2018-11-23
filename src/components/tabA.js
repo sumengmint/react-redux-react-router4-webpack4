@@ -41,7 +41,7 @@ class TabA extends Component {
         const templateStr = template();
 
         return (
-            <div>
+            <div className='tab-a-container'>
                 <p>This is tab A， please input values：</p>
                 <div>函数防抖
                     <Debounce/>

@@ -8,6 +8,15 @@ export const TestContext = React.createContext({
     propsA: '123'
 });
 
+@connect(state => {
+        return {
+            postsBySubreddit: state.postsBySubreddit,
+            selectedsubreddit: state.selectedsubreddit
+        }
+    }, dispatch => ({
+        fetchPostsIfNeeded: subreddit => dispatch( fetchPostsIfNeeded( subreddit ) )
+    })
+)
 class TabB extends Component {
     constructor( props ) {
         super( props );
@@ -19,16 +28,34 @@ class TabB extends Component {
         console.log( this.props );
     }
 
-
-
     parentFun( parentDefault ) {
         this.setState( { parentDefault } );
     }
 
-    // componentDidMount() {
-    //     const { fetchPostsIfNeeded } = this.props;
-    //     //fetchPostsIfNeeded( 'reactjs' ).then( () => console.log( store.getState() ) );
-    // }
+    componentDidMount() {
+
+    }
+
+    renderFromFetch() {
+        const { fetchPostsIfNeeded } = this.props;
+        fetchPostsIfNeeded( 'reactjs' )
+            .then( (result = {}) => {
+                console.log(result);
+                const { posts = [] } = result;
+                return (
+                    <div>
+                        {
+                            posts.map((item) => {
+                                return <div>
+                                    <div>{item.title}</div>
+                                    <div>{item.selftext}</div>
+                                </div>
+                            })
+                        }
+                    </div>
+                )
+            } );
+    }
 
     render() {
         console.log(this.state);
@@ -36,6 +63,7 @@ class TabB extends Component {
             <div>This is tab B
                 {/*<ChildB name="pengtianhao" childClass="testclass" parentFun={this.parentFun.bind( this )}/>*/}
                 {/*<div>{`The terminate is ${this.state.parentDefault}`}</div>*/}
+                { this.renderFromFetch() }
                 <TestContext.Provider value={this.state}>
                     <ContextChild/>
                 </TestContext.Provider>
@@ -44,14 +72,4 @@ class TabB extends Component {
     }
 }
 
-export default connect(
-    state => {
-        return {
-            postsBySubreddit: state.postsBySubreddit,
-            selectedsubreddit: state.selectedsubreddit
-        }
-    },
-    dispatch => ({
-        fetchPostsIfNeeded: ( subreddit ) => dispatch( fetchPostsIfNeeded( subreddit ) )
-    })
-)( TabB );
+export default TabB;

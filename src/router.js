@@ -4,6 +4,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import TabA from './components/tabA';
 import TabB from './components/tabB';
+import TabC from './components/tabC';
 import Hooks from './components/reactHooks';
 import {Context} from './components/context';
 import ReactStudy from './reactStudy/index';
@@ -25,6 +26,9 @@ class App extends Component{
                             <Link to="/b">tab B</Link>
                         </li>
                         <li>
+                            <Link to="/c">tab C</Link>
+                        </li>
+                        <li>
                             <Link to="/hook">tab hook</Link>
                         </li>
                         <li>
@@ -34,6 +38,7 @@ class App extends Component{
                             <Link to="/react">react</Link>
                         </li>
                     </ul>
+
 
                     <div className="main-content">
                         <Route exact path="/" component={TabA} />
