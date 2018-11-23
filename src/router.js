@@ -43,9 +43,10 @@ class App extends Component{
                     <div className="main-content">
                         <Route exact path="/" component={TabA} />
                         <Route path="/b" component={TabB} />
+                        <Route path="/c" component={TabC} />
                         <Route path="/hook" component={Hooks} />
                         <Route path="/context" component={Context} />
-                        <Route path="/react"><ReactStudy/></Route>
+                        {/*<Route path="/react"><ReactStudy/></Route>*/}
                     </div>
                 </div>
             </Router>

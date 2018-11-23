@@ -22,7 +22,8 @@ class TabB extends Component {
         super( props );
         this.state = {
             //parentDefault: false,
-            propsA: 'test 123'
+            propsA: 'test 123',
+            posts: []
         };
         console.log( this.state );
         console.log( this.props );
@@ -33,7 +34,7 @@ class TabB extends Component {
     }
 
     componentDidMount() {
-
+        this.renderFromFetch();
     }
 
     renderFromFetch() {
@@ -42,28 +43,27 @@ class TabB extends Component {
             .then( (result = {}) => {
                 console.log(result);
                 const { posts = [] } = result;
-                return (
-                    <div>
-                        {
-                            posts.map((item) => {
-                                return <div>
-                                    <div>{item.title}</div>
-                                    <div>{item.selftext}</div>
-                                </div>
-                            })
-                        }
-                    </div>
-                )
+                this.setState({ posts });
             } );
     }
 
     render() {
-        console.log(this.state);
+        const { posts } = this.state;
+
         return (
             <div>This is tab B
                 {/*<ChildB name="pengtianhao" childClass="testclass" parentFun={this.parentFun.bind( this )}/>*/}
                 {/*<div>{`The terminate is ${this.state.parentDefault}`}</div>*/}
-                { this.renderFromFetch() }
+                <div>
+                    {
+                        posts.map((item, idx) => {
+                            return <div key={idx}>
+                                <div>{item.title}</div>
+                                <a href={item.url}>{item.url}</a>
+                            </div>
+                        })
+                    }
+                </div>
                 <TestContext.Provider value={this.state}>
                     <ContextChild/>
                 </TestContext.Provider>

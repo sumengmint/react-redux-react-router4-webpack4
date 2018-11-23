@@ -1,18 +1,8 @@
 import React, { Component } from "react";
+import WithHeader from './HOC';
+import UseHocInheritance from './useHocInheritance';
 
-const MyContainer = WrappedComponent =>
-    class extends Component {
-        render() {
-            const newProps = {
-                text: true
-            };
-
-            //TODO
-            return <WrappedComponent {...this.props} {...newProps}>{newProps.text}</WrappedComponent>;
-        }
-    };
-
-@MyContainer
+@WithHeader
 class TabC extends Component {
     constructor( props ) {
         super( props );
@@ -20,7 +10,9 @@ class TabC extends Component {
 
     render() {
         return (
-            <div></div>
+            <div test="1111">
+                <UseHocInheritance/>
+            </div>
         )
     }
 }
