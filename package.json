@@ -2,13 +2,14 @@
   "name": "react-redux-react-router4-webpack4",
   "version": "0.0.1",
   "scripts": {
-    "build": "webpack --config ./webpack.config.pro.js",
+    "build": "webpack --config ./webpack.config.prd.js",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js",
     "debug": "node %NODE_DEBUG_OPTION% webpack-dev-server"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -18,6 +19,7 @@
     "less-loader": "^4.1.0",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.6.0",
+    "react-loadable": "^5.5.0",
     "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
@@ -29,14 +31,24 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.3.1",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^0.1.19",
     "cross-fetch": "^2.2.3",
+    "eslint-config-fortech-react": "^1.0.2",
     "mini-css-extract-plugin": "^0.4.4",
     "postcss-loader": "^3.0.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx$": "babel-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/test-config/test-setup.js"
   }
 }

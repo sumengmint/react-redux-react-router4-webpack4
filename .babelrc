@@ -1,4 +1,12 @@
 {
-  "presets": ["env", "react"],
-  "plugins": ["transform-decorators-legacy","transform-class-properties"]
+  "presets": [
+    "env",
+    "react",
+    "jest"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "babel-plugin-syntax-dynamic-import"
+  ]
 }

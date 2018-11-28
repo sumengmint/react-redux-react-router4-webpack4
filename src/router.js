@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Link } from "react-router-dom";
 import createBrowserHistory from 'history/createBrowserHistory'
 
+import Menu from './module/layout/menu';
 import TabA from './module/home/tabA';
 import TabB from './module/home/tabB';
 import Hoc from './module/home/tabC';
@@ -18,27 +19,7 @@ class App extends Component{
         return (
             <Router history={history}>
                 <div className="container">
-                    <ul className='menu-tree'>
-                        <li>
-                            <Link to="/">tab A</Link>
-                        </li>
-                        <li>
-                            <Link to="/b">tab B</Link>
-                        </li>
-                        <li>
-                            <Link to="/hoc">HOC</Link>
-                        </li>
-                        <li>
-                            <Link to="/hook">tab hook</Link>
-                        </li>
-                        <li>
-                            <Link to="/context">context</Link>
-                        </li>
-                        <li>
-                            <Link to="/react">react</Link>
-                        </li>
-                    </ul>
-
+                    <Menu/>
 
                     <div className="main-content">
                         <Route exact path="/" component={TabA} />

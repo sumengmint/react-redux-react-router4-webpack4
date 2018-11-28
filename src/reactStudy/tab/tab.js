@@ -2,40 +2,16 @@
  * Created by za-sumeng on 2018/11/22.
  */
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import Loadable from "react-loadable";
+import Testloading from './components/testLoading';
 
-class Tab extends Component {
-    constructor(props) {
-        super(props);
+const TestLoadabale = Loadable({
+    loader: () => import('./components/tabLoading'),
+    loading: Testloading
+});
 
-        const currProps = this.props;
-        let activeIndex = 0;
-
-        if('activeIndex' in currProps) {
-            activeIndex = currProps.activeIndex;
-        }
-        else if('defaultActiveIndex' in currProps) {
-            activeIndex = currProps.defaultActiveIndex;
-        }
-
-        this.state = {
-            activeIndex,
-            prevIndex: activeIndex
-        }
-    }
-
-    componentDidMount() {
-        const dom = ReactDOM.findDOMNode(this);
-        console.log(dom);
-    }
-
-    componentWillReceiveProps(nextprops) {
-        console.log('nextprops');
-    }
-
+export default class TestLoadDashboard extends Component{
     render() {
-        return <div>my tab test</div>
+        return <TestLoadabale></TestLoadabale>
     }
-}
-
-export default Tab;
+};

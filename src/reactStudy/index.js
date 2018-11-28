@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
-import { Router, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import Tab from './tab/tab';
+import { getCookie, setCookie, delCookie } from '../utils/cookie';
 
 class ReactStudy extends Component{
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        const expirse = 3*24*60*60*1000;
+        setCookie( {name: 'sumeng' }, expirse);
+        console.log(getCookie());
+        delCookie('undefinedname');
+    }
+
     render() {
         return (
             <div>

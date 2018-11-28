@@ -25,12 +25,18 @@ config.plugins.push(
 
 config.devServer = {
     contentBase: path.resolve(__dirname, './dist'),
-        //publicPath: path.resolve(__dirname, './dist'),
-        host: 'localhost',      // 默认是localhost
-        port: 3000,             // 端口
-        //open: true,             // 自动打开浏览器
-        hot: true,               // 开启热更新
-        historyApiFallback: true
+    //publicPath: path.resolve(__dirname, './dist'),
+    host: 'localhost',      // 默认是localhost
+    port: 3000,             // 端口
+    //open: true,             // 自动打开浏览器
+    hot: true,               // 开启热更新
+    historyApiFallback: true,
+    proxy: {
+        "/api": {
+            target: "http://www.subreddit.com",
+            pathRewrite: { "^/api": ""}
+        }
+    }
 };
 
 module.exports = config;
