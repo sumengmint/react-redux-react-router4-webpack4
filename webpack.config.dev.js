@@ -8,6 +8,11 @@ var FileListPlugin = require('./FileListPlugin');
 
 config.mode = 'development';
 
+config.entry = [
+    path.resolve(__dirname, './src/main.js'),
+    //"webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true"
+];
+
 config.output.filename = 'bundle.[hash].js';
 
 config.module.rules.push({

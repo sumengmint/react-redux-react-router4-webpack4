@@ -11,9 +11,9 @@ class ReactStudy extends Component{
 
     componentDidMount() {
         const expirse = 3*24*60*60*1000;
-        setCookie( {name: 'sumeng' }, expirse);
+        /*setCookie( {name: 'sumeng' }, expirse);
         console.log(getCookie());
-        delCookie('undefinedname');
+        delCookie('undefinedname');*/
     }
 
     render() {

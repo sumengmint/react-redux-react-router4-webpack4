@@ -12,9 +12,7 @@ import ReactStudy from './reactStudy/index';
 
 class App extends Component{
     render() {
-        const history = createBrowserHistory({
-            forceRefresh: false, // 是否强制刷新整个页面
-        });
+        const history = createBrowserHistory();
 
         return (
             <Router history={history}>
@@ -27,7 +25,7 @@ class App extends Component{
                         <Route path="/hoc" component={Hoc} />
                         <Route path="/hook" component={Hooks} />
                         <Route path="/context" component={Context} />
-                        <Route path="/react"><ReactStudy/></Route>
+                        <Route path="/react" component={ReactStudy}></Route>
                     </div>
                 </div>
             </Router>

@@ -57,9 +57,7 @@ export function fetchPosts(subreddit) {
 		// 这个案例中，我们返回一个等待处理的 promise。
 		// 这并不是 redux middleware 所必须的，但这对于我们而言很方便。
 
-		return fetch(`/api/r/${subreddit}.json`, {
-            credentials: 'include'
-        })
+		return fetch(`http://www.subreddit.com/r/${subreddit}.json`)
 			.then(
 				response => response.json(),
 				// 不要使用 catch，因为会捕获

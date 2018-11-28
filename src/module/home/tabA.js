@@ -42,7 +42,7 @@ class TabA extends Component {
 
         return (
             <div className='tab-a-container'>
-                <p>This is tab A， please input values：</p>
+                <p>This is tab A by express， please input values：</p>
                 <div>函数防抖
                     <Debounce/>
                 </div>

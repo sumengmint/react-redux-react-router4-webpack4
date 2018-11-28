@@ -4,7 +4,8 @@
   "scripts": {
     "build": "webpack --config ./webpack.config.prd.js",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js",
-    "debug": "node %NODE_DEBUG_OPTION% webpack-dev-server"
+    "start": "node ./server/server.js",
+    "debug": "node %NODE_DEBUG_OPTION% ./server/server.js"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -39,10 +40,13 @@
     "clean-webpack-plugin": "^0.1.19",
     "cross-fetch": "^2.2.3",
     "eslint-config-fortech-react": "^1.0.2",
+    "express": "^4.16.4",
     "mini-css-extract-plugin": "^0.4.4",
     "postcss-loader": "^3.0.0",
     "webpack-bundle-analyzer": "^3.0.3",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3"
   },
   "jest": {
     "transform": {
