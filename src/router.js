@@ -46,7 +46,7 @@ class App extends Component{
                         <Route path="/hoc" component={Hoc} />
                         <Route path="/hook" component={Hooks} />
                         <Route path="/context" component={Context} />
-                        {/*<Route path="/react"><ReactStudy/></Route>*/}
+                        <Route path="/react"><ReactStudy/></Route>
                     </div>
                 </div>
             </Router>
