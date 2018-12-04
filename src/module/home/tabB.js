@@ -25,8 +25,6 @@ class TabB extends Component {
             propsA: 'test 123',
             posts: []
         };
-        console.log( this.state );
-        console.log( this.props );
     }
 
     parentFun( parentDefault ) {

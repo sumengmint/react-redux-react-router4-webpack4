@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "scripts": {
     "build": "webpack --config ./webpack.config.prd.js",
-    "dev": "webpack-dev-server --config ./webpack.config.dev.js",
+    "dev": "npm run mock & npm run webpack",
+    "webpack": "webpack-dev-server --config ./webpack.config.dev.js",
     "start": "node ./server/server.js",
-    "debug": "node %NODE_DEBUG_OPTION% ./server/server.js"
+    "mock": "node ./server/mock.js",
+    "debug": "node %NODE_DEBUG_OPTION% ./server/mock.js"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -42,6 +44,7 @@
     "eslint-config-fortech-react": "^1.0.2",
     "express": "^4.16.4",
     "mini-css-extract-plugin": "^0.4.4",
+    "mockjs": "^1.0.1-beta3",
     "postcss-loader": "^3.0.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",

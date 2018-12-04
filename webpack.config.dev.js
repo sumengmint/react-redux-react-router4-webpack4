@@ -38,7 +38,7 @@ config.devServer = {
     historyApiFallback: true,
     proxy: {
         "/api": {
-            target: "http://www.subreddit.com",
+            target: "http://localhost:8000",
             pathRewrite: { "^/api": ""}
         }
     }

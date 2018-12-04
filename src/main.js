@@ -23,8 +23,6 @@ const store = createStore(
 	)
 );
 
-console.log(store);
-
 store.dispatch(selectSubreddit('myActions'));
 
 ReactDOM.render(

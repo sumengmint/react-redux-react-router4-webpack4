@@ -2,7 +2,7 @@
  * Created by za-sumeng on 2018/11/5.
  */
 import fetch from 'cross-fetch';
-import { ADD_TODO, SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS } from '../constants/index';
+import { ADD_TODO, SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS, RECEIVED_MOCK } from '../constants/index';
 
 export function addToDo(text) {
 	return {type: ADD_TODO, text};
@@ -101,5 +101,19 @@ export function fetchPostsIfNeeded(subreddit) {
 			// 告诉调用代码不需要再等待。
 			return Promise.resolve()
 		}
+	}
+}
+
+export function fetchMockApi() {
+	return (dispatch, getState) => fetch('/api/user/data').then(json => {
+		console.log(json);
+		dispatch(receivedMock(json));
+	})
+}
+
+export function receivedMock(json) {
+	return {
+		type: RECEIVED_MOCK,
+		json
 	}
 }

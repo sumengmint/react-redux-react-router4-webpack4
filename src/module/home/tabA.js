@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {selectSubreddit} from "../../actions/asyncAciton";
+import {selectSubreddit, fetchMockApi} from "../../actions/asyncAciton";
 import {openModel} from "../../actions/modelAction";
 import Debounce from "./components/debounce";
 import Throttle from "./components/throttle";
@@ -14,8 +14,9 @@ class TabA extends Component {
     }
 
     componentDidMount() {
-        const { selectSubreddit } = this.props;
+        const { selectSubreddit, fetchMockApi } = this.props;
         selectSubreddit('sumeng');
+        fetchMockApi();
     }
 
     getModel(ref) {
@@ -66,6 +67,7 @@ export default connect(
     },
     dispatch => ({
         selectSubreddit: arg => dispatch(selectSubreddit(arg)),
-        openModel: () => dispatch(openModel())
+        openModel: () => dispatch(openModel()),
+        fetchMockApi: () => dispatch(fetchMockApi())
     })
 )(TabA);
