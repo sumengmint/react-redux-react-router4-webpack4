@@ -7,9 +7,9 @@ router.all('/data', (req, res, next) => {
     var data = Mock.mock({
         resultCode: 200,
         resultJson: {
-            'id|10000-20000': 18000,//id: 10000-20000之间的随机一个数字
+            'id|10000-20000': 19000,//id: 10000-20000之间的随机一个数字
             'name': '@cname',//name: 随机生成一个中文名
-            'star|0-5': '☆',//star: 指定的字符串重复0-5次生成
+            'star|0-6': '☆',//star: 指定的字符串重复0-5次生成
             'image': '',//image:
             'locked|1-2': false,//locked: 随机生成 true 或 false
             'address|1': ['北京市','贵州省','浙江省'],// role: 北京、贵州、杭州 随机三选一
